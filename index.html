@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ranu Printers & Photo State</title>
+<style>
+:root{--maroon:#8b0033;--pink:#c41455;--gold:#e7a900;--green:#08a65b;--navy:#08243d;--cream:#fff8ef}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#242424;background:#fff}
+a{text-decoration:none;color:inherit}.top{background:var(--maroon);color:white;padding:7px 4%;font-size:13px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.header{padding:16px 4%;display:flex;align-items:center;gap:25px;justify-content:space-between;background:#fff}.brand{display:flex;align-items:center;gap:12px}.logo{width:58px;height:58px;border-radius:14px;background:linear-gradient(135deg,#efb400,#a50042);color:#fff;font-size:38px;font-weight:900;display:grid;place-items:center}.brand h1{margin:0;color:var(--maroon);font-size:28px}.brand p{margin:3px 0 0;font-size:12px;font-weight:bold}
+.search{display:flex;max-width:390px;flex:1}.search input{width:100%;padding:13px;border:1px solid #ddd;border-radius:8px 0 0 8px}.search button{border:0;background:var(--maroon);color:#fff;padding:0 18px;border-radius:0 8px 8px 0}.contact{font-weight:bold;line-height:1.5}
+.nav{background:var(--maroon);color:#fff;padding:0 4%;display:flex;gap:22px;overflow:auto;white-space:nowrap}.nav a{padding:14px 4px;font-size:14px}.nav a:hover{color:#ffd44e}
+.hero{padding:10px 4% 25px;background:var(--cream)}.hero-grid{display:grid;grid-template-columns:2.2fr 1fr;gap:12px}.hero-main{min-height:320px;border-radius:16px;padding:35px;background:radial-gradient(circle at 80% 20%,#f4bf56,#8b0033 45%,#4a001c);color:#fff;position:relative;overflow:hidden}.hero-main:after{content:"✦  ❀  ✦  ❀  ✦";position:absolute;right:20px;top:15px;font-size:44px;color:#ffd55c;opacity:.6}.hero-main h2{font-size:42px;margin:15px 0 10px;font-family:Georgia,serif;color:#ffd55c}.hero-main h3{font-size:25px;margin:0 0 15px}.hero-main .big{font-size:30px;font-weight:900}.hero-main .chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}.chip{background:#fff;color:#6d0029;padding:9px 14px;border-radius:25px;font-weight:bold;font-size:13px}
+.offers{display:grid;gap:10px}.offer{border-radius:14px;color:#fff;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 4px 12px #0002}.offer strong{font-size:28px}.poster{background:#c41455}.video{background:#2f4ba7}.free{background:#079b55}.pdf{background:#e17a00}
+.section{padding:28px 4%}.section-title{text-align:center;color:var(--maroon);font-size:28px;margin:0 0 20px}.categories{display:grid;grid-template-columns:repeat(7,1fr);gap:12px}.cat{padding:18px 10px;border:1px solid #eee;border-radius:14px;text-align:center;background:#fff;box-shadow:0 3px 12px #0000000d;font-weight:bold}.cat .ico{font-size:35px;margin-bottom:8px}.special{background:#fff0e5;border-radius:18px;padding:20px;display:grid;grid-template-columns:1.2fr repeat(4,1fr);gap:12px;align-items:center}.special .lead{background:var(--maroon);color:#fff;border-radius:15px;padding:18px}.special h3{font-size:25px;margin:0 0 5px}.special-item{text-align:center;font-weight:bold}.special-item b{display:block;font-size:22px;color:var(--maroon)}
+.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:15px}.card{border:1px solid #eee;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 4px 14px #00000010}.card .pic{height:170px;background:linear-gradient(135deg,#8b0033,#f2cf82);display:grid;place-items:center;color:#fff;font-size:44px}.card img{width:100%;height:170px;object-fit:cover}.card-body{padding:12px}.badge{display:inline-block;background:#e31d48;color:#fff;border-radius:12px;padding:4px 8px;font-size:11px;font-weight:bold}.price{color:var(--maroon);font-size:19px;font-weight:900;margin:7px 0}.wa{display:block;background:var(--green);color:#fff;text-align:center;padding:10px;border-radius:9px;font-weight:bold;border:0;width:100%;cursor:pointer}
+.features{background:#f8f8f8;display:grid;grid-template-columns:repeat(5,1fr);gap:20px;text-align:center}.feature{font-weight:bold}.feature span{font-size:30px;display:block;margin-bottom:6px}
+.digital{background:linear-gradient(135deg,#fff0f5,#eef5ff);border-radius:18px;padding:25px;display:grid;grid-template-columns:1fr 1fr;gap:18px}.digital-box{padding:22px;border-radius:16px;background:#fff;box-shadow:0 5px 18px #0001}.digital-box h3{margin-top:0;color:var(--maroon)}
+.footer{background:var(--navy);color:#fff;padding:35px 4%;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px}.footer h3{margin-top:0}.footer p{color:#d7e0e7;line-height:1.6}.admin{background:#f5f5f5;padding:28px 4%}.admin-box{max-width:900px;margin:auto;background:#fff;padding:22px;border-radius:15px;box-shadow:0 4px 15px #0001}.admin-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.admin input,.admin select{width:100%;padding:12px;border:1px solid #ddd;border-radius:8px}.admin button{padding:12px 18px;border:0;border-radius:8px;background:var(--maroon);color:#fff;font-weight:bold;cursor:pointer}.muted{color:#666;font-size:13px}
+@media(max-width:900px){.header{flex-wrap:wrap}.search{order:3;max-width:none;flex-basis:100%}.hero-grid{grid-template-columns:1fr}.categories{grid-template-columns:repeat(3,1fr)}.cards{grid-template-columns:repeat(2,1fr)}.special{grid-template-columns:1fr 1fr}.special .lead{grid-column:1/-1}.features{grid-template-columns:repeat(2,1fr)}.footer{grid-template-columns:1fr 1fr}}
+@media(max-width:550px){.brand h1{font-size:21px}.contact{font-size:12px}.hero-main h2{font-size:31px}.hero-main h3{font-size:20px}.categories{grid-template-columns:repeat(2,1fr)}.cards{grid-template-columns:1fr}.special{grid-template-columns:1fr}.footer{grid-template-columns:1fr}.top{font-size:11px}}
+</style>
+</head>
+<body>
+<div class="top"><span>✦ Shaadi | Nikah | Birthday | Anniversary | All Types of Invitation Cards</span><span>आपके खास पलों के लिए, हमारी खास सेवाएं...</span></div>
+<header class="header">
+  <div class="brand"><div class="logo">R</div><div><h1>RANU</h1><p>PRINTERS & PHOTO STATE</p><small>Invitation Cards | Digital Invitations | Photo Printing | All Printing Services</small></div></div>
+  <div class="search"><input id="search" placeholder="Article No. या Category Search करें..." oninput="renderCards()"><button>⌕</button></div>
+  <div class="contact">☎ 9140817599<br>☎ 9455051021<br>📍 Patna, Malhipur, Jamunaha Road</div>
+</header>
+<nav class="nav">
+<a href="#home">Home</a><a href="#cards">Wedding Cards</a><a href="#cards">Nikah Cards</a><a href="#cards">Birthday Cards</a><a href="#cards">Other Cards</a><a href="#digital">Digital Invitation</a><a href="#new">New Arrivals</a><a href="#contact">Contact</a>
+</nav>
+
+<main id="home">
+<section class="hero"><div class="hero-grid">
+<div class="hero-main"><h2>Ranu Printers & Photo State</h2><h3>अब आपके पसंदीदा कार्ड और डिजिटल इनविटेशन घर बैठे देखें!</h3><div class="big">अपना इनविटेशन कार्ड घर बैठे देखें</div><div class="chips"><span class="chip">💍 Wedding</span><span class="chip">🕌 Nikah</span><span class="chip">🎂 Birthday</span><span class="chip">❤️ Anniversary</span><span class="chip">✦ & More</span></div></div>
+<div class="offers">
+<div class="offer poster"><span>Digital Poster<br><strong>₹49</strong><br><small>Photo + Design</small></span><b>▣</b></div>
+<div class="offer video"><span>Digital Video<br><strong>₹99</strong><br><small>Photo + Name + Details</small></span><b>▶</b></div>
+<div class="offer free"><span>Card Printing पर<br><strong>FREE</strong> WhatsApp Poster</span><b>◉</b></div>
+<div class="offer pdf"><span>Card Printing पर<br><strong>FREE</strong> PDF Checking</span><b>✓</b></div>
+</div></div></section>
+
+<section class="section"><h2 class="section-title">Card Categories</h2><div class="categories">
+<div class="cat" onclick="filterCat('Wedding')"><div class="ico">💍</div>Wedding Cards<br><small>(Shaadi)</small></div>
+<div class="cat" onclick="filterCat('Nikah')"><div class="ico">🕌</div>Nikah Cards<br><small>(Muslim)</small></div>
+<div class="cat" onclick="filterCat('Engagement')"><div class="ico">💐</div>Engagement Cards</div>
+<div class="cat" onclick="filterCat('Birthday')"><div class="ico">🎂</div>Birthday Cards</div>
+<div class="cat" onclick="filterCat('Anniversary')"><div class="ico">❤️</div>Anniversary Cards</div>
+<div class="cat" onclick="filterCat('Baby')"><div class="ico">🧸</div>Baby Cards</div>
+<div class="cat" onclick="filterCat('Other')"><div class="ico">✦</div>Other Cards</div>
+</div></section>
+
+<section class="section"><div class="special"><div class="lead"><h3>📣 Special Offer</h3><div>अब कार्ड के साथ पाएं और भी ज्यादा सुविधाएं!</div></div>
+<div class="special-item">🖨️<b>Card Printing</b></div><div class="special-item">📄<b>FREE PDF Checking</b></div><div class="special-item">💬<b>FREE WhatsApp Poster</b></div><div class="special-item">🎨<b>Poster ₹49</b></div><div class="special-item">🎬<b>Video ₹99</b></div>
+</div></section>
+
+<section class="section" id="new"><h2 class="section-title">✦ New Arrivals ✦</h2><p style="text-align:center;color:#666">Latest Designs | Best Quality | Affordable Price</p><div class="cards" id="cards"></div></section>
+
+<section class="section" id="digital"><h2 class="section-title">Digital Invitation Services</h2><div class="digital">
+<div class="digital-box"><h3>📸 Digital Invitation Poster — ₹49</h3><p>आपकी photo, नाम और invitation details के साथ सुंदर WhatsApp/Social Media poster.</p><button class="wa" onclick="wa('मुझे Digital Invitation Poster ₹49 के बारे में जानकारी चाहिए।')">WhatsApp पर Enquiry</button></div>
+<div class="digital-box"><h3>🎬 Digital Invitation Video — ₹99</h3><p>Photo + नाम + invitation details के साथ WhatsApp पर भेजने योग्य invitation video.</p><button class="wa" onclick="wa('मुझे Digital Invitation Video ₹99 के बारे में जानकारी चाहिए।')">WhatsApp पर Enquiry</button></div>
+</div></section>
+
+<section class="section features">
+<div class="feature"><span>🖨️</span>High Quality Printing</div><div class="feature"><span>✨</span>Latest & Unique Designs</div><div class="feature"><span>🚚</span>On Time Delivery</div><div class="feature"><span>🤝</span>Trusted by Customers</div><div class="feature"><span>₹</span>Best Price Guarantee</div>
+</section>
+</main>
+
+<section class="admin" id="admin"><div class="admin-box"><h2>🔐 Card Manager (Demo)</h2><p class="muted">यह demo admin section browser में cards save करता है। Production website में इसे secure login/database से जोड़ा जाएगा.</p>
+<div class="admin-grid"><input id="aNo" placeholder="Article No. जैसे W-125"><input id="aCat" placeholder="Category जैसे Wedding"><input id="aPrice" type="number" placeholder="Rate per card"><input id="aImg" placeholder="Image URL (optional)"></div><br><button onclick="addCard()">+ New Card Add करें</button> <button onclick="resetCards()">Demo Cards Reset</button></div></section>
+
+<footer class="footer" id="contact">
+<div><h2>RANU</h2><h3>PRINTERS & PHOTO STATE</h3><p>Shaadi, Nikah, Birthday, Anniversary और सभी प्रकार के invitation cards के साथ digital invitation services भी उपलब्ध.</p></div>
+<div><h3>Quick Links</h3><p>Home<br>Wedding Cards<br>Nikah Cards<br>Birthday Cards<br>Other Cards<br>Digital Invitation<br>New Arrivals</p></div>
+<div><h3>Contact Us</h3><p>☎ 9140817599<br>☎ 9455051021<br>📍 Patna, Malhipur,<br>Jamunaha Road</p><button class="wa" onclick="wa('Namaste, mujhe cards ke baare mein enquiry karni hai.')">WhatsApp Now</button></div>
+<div><h3>Find Us</h3><p>📍 Ranu Printers & Photo State<br>Patna, Malhipur, Jamunaha Road</p><p>© 2026 Ranu Printers & Photo State</p></div>
+</footer>
+
+<script>
+const KEY='ranu_cards_v1';
+const defaults=[
+{no:'W-125',cat:'Wedding',price:35,emoji:'💍',new:true},
+{no:'N-078',cat:'Nikah',price:30,emoji:'🕌',new:true},
+{no:'B-042',cat:'Birthday',price:25,emoji:'🎂',new:true},
+{no:'A-021',cat:'Anniversary',price:30,emoji:'❤️',new:true},
+{no:'M-033',cat:'Baby',price:28,emoji:'🧸',new:true}
+];
+function cards(){return JSON.parse(localStorage.getItem(KEY)||'null')||defaults}
+function save(x){localStorage.setItem(KEY,JSON.stringify(x))}
+function wa(msg){window.open('https://wa.me/919140817599?text='+encodeURIComponent(msg),'_blank')}
+function renderCards(){
+ let q=(document.getElementById('search').value||'').toLowerCase();
+ let data=cards().filter(x=>(x.no+' '+x.cat).toLowerCase().includes(q));
+ document.getElementById('cards').innerHTML=data.map(x=>`
+ <article class="card">
+ ${x.img?`<img src="${x.img}" alt="${x.no}">`:`<div class="pic">${x.emoji||'✦'}</div>`}
+ <div class="card-body"><span class="badge">${x.new?'New':'Card'}</span><div><b>Article No. ${x.no}</b></div><small>${x.cat} Card</small><div class="price">₹ ${x.price} / Card</div>
+ <button class="wa" onclick="wa('Namaste, mujhe Article No. ${x.no} (${x.cat} Card) pasand hai. Iska rate aur details batayein.')">💬 WhatsApp Enquiry</button></div></article>`).join('')||'<p>इस search के लिए कोई card नहीं मिला.</p>';
+}
+function filterCat(cat){document.getElementById('search').value=cat;renderCards();location.hash='new'}
+function addCard(){
+ let no=document.getElementById('aNo').value.trim(),cat=document.getElementById('aCat').value.trim(),price=Number(document.getElementById('aPrice').value),img=document.getElementById('aImg').value.trim();
+ if(!no||!cat||!price)return alert('Article No., Category और Rate भरें.');
+ let x=cards();x.unshift({no,cat,price,img,new:true,emoji:'✦'});save(x);renderCards();alert('Card add हो गया.');
+}
+function resetCards(){save(defaults);renderCards()}
+renderCards();
+</script>
+</body></html>
