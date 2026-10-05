@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ranuprinters.github.io/ranuprinters/sitemap.xml
